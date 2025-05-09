@@ -3,6 +3,7 @@ package com.gruntech.project_management.services;
 import com.gruntech.project_management.models.Project;
 import com.gruntech.project_management.models.enums.JobType;
 import com.gruntech.project_management.models.enums.ProjectStage;
+
 import com.gruntech.project_management.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -91,4 +92,5 @@ public class ProjectService {
     public List<Project> getProjectsByJobType(JobType jobType) {
         return projectRepository.findByJobType(jobType);
     }
+
 }

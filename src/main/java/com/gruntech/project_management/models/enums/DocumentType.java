@@ -9,17 +9,4 @@ public enum DocumentType {
     ON_KABUL,
     GECICI_KABUL;
 
-    @Override
-    public String toString() {
-        switch (this) {
-            case STATIK_PROJE: return "Statik Proje";
-            case CAGRI_MEKTUBU: return "Çağrı Mektubu";
-            case BAGLANTI_ANLASMASI: return "Bağlantı Anlaşması";
-            case GES_ELEKTRIK_PROJE: return "GES Elektrik Proje";
-            case BELEDIYE_UYGUNLUK: return "Belediye Uygunluk";
-            case ON_KABUL: return "Ön Kabul";
-            case GECICI_KABUL: return "Geçici Kabul";
-            default: return super.toString();
-        }
-    }
 }

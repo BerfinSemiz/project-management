@@ -1,52 +1,38 @@
 package com.gruntech.project_management.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gruntech.project_management.models.enums.DocumentType;
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "project_file")
 public class ProjectFile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fileName;         // Dosya adı
-    private String filePath;         // Sunucudaki yol (uploads/)
-
     @Enumerated(EnumType.STRING)
-    private DocumentType documentType;  // Enum: Belge Türü
+    @Column(nullable = false)
+    private DocumentType documentType;
 
-    private LocalDate documentDate;  // Belge Tarihi
-    private String documentNumber;   // Belge Numarası (Sayı)
-    private LocalDate uploadDate;    // Yükleme tarihi
+    private String filePath;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id")
+    private String documentNumber;
+
+    private LocalDate documentDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id", nullable = false)
+    @JsonIgnore
     private Project project;
+
+    // --- GETTER & SETTER ---
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
     }
 
     public DocumentType getDocumentType() {
@@ -57,12 +43,12 @@ public class ProjectFile {
         this.documentType = documentType;
     }
 
-    public LocalDate getDocumentDate() {
-        return documentDate;
+    public String getFilePath() {
+        return filePath;
     }
 
-    public void setDocumentDate(LocalDate documentDate) {
-        this.documentDate = documentDate;
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
     public String getDocumentNumber() {
@@ -73,12 +59,12 @@ public class ProjectFile {
         this.documentNumber = documentNumber;
     }
 
-    public LocalDate getUploadDate() {
-        return uploadDate;
+    public LocalDate getDocumentDate() {
+        return documentDate;
     }
 
-    public void setUploadDate(LocalDate uploadDate) {
-        this.uploadDate = uploadDate;
+    public void setDocumentDate(LocalDate documentDate) {
+        this.documentDate = documentDate;
     }
 
     public Project getProject() {

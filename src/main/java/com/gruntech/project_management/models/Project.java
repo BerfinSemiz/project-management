@@ -1,7 +1,9 @@
 package com.gruntech.project_management.models;
 
+import com.gruntech.project_management.models.enums.ApprovalStatus;
 import com.gruntech.project_management.models.enums.JobType;
 import com.gruntech.project_management.models.enums.ProjectStage;
+
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -38,7 +40,13 @@ public class Project {
     
     private String callLetterStatus;    // Çağrı Mektubu
     private String approvalDueText;     // Proje onayı için kalan süre (örnek: "15 gün kaldı")
-    private String approvalStatus;      // Proje Onay Durumu
+    
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private ApprovalStatus approvalStatus;      // Proje Onay Durumu
+    
+
+
     private String connectionAgreement; // Bağlantı Sözleşmesi
     
     private String staticStatus;       // Statik Durumu
@@ -245,16 +253,6 @@ public class Project {
     }
 
 
-    public String getApprovalStatus() {
-        return approvalStatus;
-    }
-
-
-    public void setApprovalStatus(String approvalStatus) {
-        this.approvalStatus = approvalStatus;
-    }
-
-
     public String getConnectionAgreement() {
         return connectionAgreement;
     }
@@ -314,6 +312,12 @@ public class Project {
         this.customer = customer;
     }
 
-    // Getter ve Setter'lar
+    public ApprovalStatus getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
     
 }
