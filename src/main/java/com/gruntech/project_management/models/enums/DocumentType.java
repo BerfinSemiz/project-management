@@ -7,8 +7,6 @@ public enum DocumentType {
     GES_ELEKTRIK_PROJE,
     BELEDIYE_UYGUNLUK,
     ON_KABUL,
-    GECICI_KABUL_EMIR_YAZISI,
-    KABUL_UST_YAZISI,
-    KABUL_TUTANAĞI;
+    GECICI_KABUL;
 
 }
