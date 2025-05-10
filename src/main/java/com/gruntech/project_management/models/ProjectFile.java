@@ -18,16 +18,16 @@ public class ProjectFile {
     @Column(nullable = false)
     private DocumentType documentType;
 
-    private String filePath;
+    private String filePath;  // Dosya yolu
 
-    private String documentNumber;
+    private String documentNumber;  // Belge numarası
 
-    private LocalDate documentDate;
+    private LocalDate documentDate;  // Belge tarihi
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
     @JsonIgnore
-    private Project project;
+    private Project project;  // Proje ile ilişkilendirme
 
     // --- GETTER & SETTER ---
 
