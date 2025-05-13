@@ -3,6 +3,7 @@ package com.gruntech.project_management.models;
 import com.gruntech.project_management.models.enums.ApprovalStatus;
 import com.gruntech.project_management.models.enums.JobType;
 import com.gruntech.project_management.models.enums.ProjectStage;
+import com.gruntech.project_management.models.enums.RegulationType;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -37,15 +38,16 @@ public class Project {
     private String inverter;           // Kullanılan İnverter
     private String inverterSerial;     // İnverter Seri Numarası
     
-    
-    private String callLetterStatus;    // Çağrı Mektubu
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private RegulationType regulationTypes;   // Yönetmelik Türleri
+
+    private String callLetterDate;    // Çağrı Mektubu Tarihi
     private String approvalDueText;     // Proje onayı için kalan süre (örnek: "15 gün kaldı")
     
     @Enumerated(EnumType.STRING)
     @Column(nullable = true)
     private ApprovalStatus approvalStatus;      // Proje Onay Durumu
-    
-
 
     private String connectionAgreement; // Bağlantı Sözleşmesi
     
@@ -53,6 +55,7 @@ public class Project {
     private String lastOperation;      // Son İşlem
 
     @Enumerated(EnumType.STRING)
+     @Column(nullable = true)
     private ProjectStage projectStage; // Proje Durumu
     
     private String invoiceStatus;      // Fatura Durumu
@@ -233,13 +236,13 @@ public class Project {
     }
 
 
-    public String getCallLetterStatus() {
-        return callLetterStatus;
+    public String getCallLetterDate() {
+        return callLetterDate;
     }
 
 
-    public void setCallLetterStatus(String callLetterStatus) {
-        this.callLetterStatus = callLetterStatus;
+    public void setCallLetterDate(String callLetterDate) {
+        this.callLetterDate = callLetterDate;
     }
 
 
@@ -320,4 +323,11 @@ public class Project {
         this.approvalStatus = approvalStatus;
     }
     
+    public RegulationType getRegulationTypes() {
+        return regulationTypes;
+    }
+
+    public void setRegulationTypes(RegulationType regulationTypes) {
+        this.regulationTypes = regulationTypes;
+    }
 }

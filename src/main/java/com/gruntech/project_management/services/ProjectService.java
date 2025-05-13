@@ -53,8 +53,9 @@ public class ProjectService {
         if (updatedProject.getPanelType() != null) existingProject.setPanelType(updatedProject.getPanelType());
         if (updatedProject.getPanelCount() != null) existingProject.setPanelCount(updatedProject.getPanelCount());
         if (updatedProject.getInverter() != null) existingProject.setInverter(updatedProject.getInverter());
+        if (updatedProject.getRegulationTypes() != null) existingProject.setRegulationTypes(updatedProject.getRegulationTypes());
         if (updatedProject.getInverterSerial() != null) existingProject.setInverterSerial(updatedProject.getInverterSerial());
-        if (updatedProject.getCallLetterStatus() != null) existingProject.setCallLetterStatus(updatedProject.getCallLetterStatus());
+        if (updatedProject.getCallLetterDate() != null) existingProject.setCallLetterDate(updatedProject.getCallLetterDate());
         if (updatedProject.getApprovalDueText() != null) existingProject.setApprovalDueText(updatedProject.getApprovalDueText());
         if (updatedProject.getApprovalStatus() != null) existingProject.setApprovalStatus(updatedProject.getApprovalStatus());
         if (updatedProject.getConnectionAgreement() != null) existingProject.setConnectionAgreement(updatedProject.getConnectionAgreement());
